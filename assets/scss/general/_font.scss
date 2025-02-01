@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'Dana_Variable';
+  src: url('~/assets/fonts/Dana_Variable.ttf') format('truetype'),
+  url('~/assets/fonts/Dana_Variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: fallback;
+}
+
+@supports (font-variation-settings: normal) {
+
+  html,
+  html * {
+    font-family: 'Dana_Variable', sans-serif !important;
+  }
+}
+
+html,
+html * {
+  white-space: normal;
+  font-variation-settings: "wght" 400, "dots" 0
+}

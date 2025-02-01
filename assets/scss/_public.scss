@@ -1,0 +1,39 @@
+.container{
+  max-width: 100%;
+
+}
+
+.h-99{
+  height: 99% !important;
+}
+
+.top-header{
+  min-height:64px;
+  background: #060511;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &--search{
+    display: flex;
+    align-items: center;
+
+  }
+}
+
+.header-menu{
+  min-height: 80px;
+  background: #0C0A22;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.footer-box{
+  min-height: 345px;
+  background: #060511;
+  &--footer-link{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+}
