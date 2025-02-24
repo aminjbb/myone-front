@@ -1,4 +1,7 @@
 <template>
+<div>
+  <headerPage/>
+
   <div class="service px-md-15 mx-md-10 py-md-15 my-8 px-5" >
     <div class="service--head">
       <span class="text-Primarydarken3">
@@ -39,11 +42,17 @@
       </v-col>
     </v-row>
   </div>
+  <footerPage/>
+</div>
+
 </template>
 
 <script>
 import Service from '~/composables/Service.js'
+import footerPage from "~/components/public/footer.vue";
+import headerPage from "~/components/public/header.vue";
 export default {
+  components: {headerPage, footerPage},
   setup(){
     const {detail} = new Service();
     return {detail}

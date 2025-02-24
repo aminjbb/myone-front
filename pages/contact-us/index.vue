@@ -1,5 +1,8 @@
 <template>
+<div>
   <div>
+    <headerPage/>
+
     <v-row justify="center" align="center">
       <v-col md="5" cols="12" class="">
         <div class="contact-us-banner">
@@ -194,12 +197,12 @@
                 <img src="~/assets/images/icones/group.svg" alt="">
               </div>
               <div class="mr-3" >
-               <div>
-                 <span class="t12 w400 text-Graylighten2">اردبیل</span>
-               </div>
+                <div>
+                  <span class="t12 w400 text-Graylighten2">اردبیل</span>
+                </div>
                 <div class="mt-n2">
-                 <span class="t14 w400 text-TextMain">          {{ item?.name }}</span>
-               </div>
+                  <span class="t14 w400 text-TextMain">          {{ item?.name }}</span>
+                </div>
               </div>
             </div>
             <div class="mt-4">
@@ -223,12 +226,18 @@
       </v-row>
     </div>
   </div>
+  <footerPage/>
+</div>
+
 </template>
 
 <script>
 import Contact from '~/composables/Contact.js'
 import axios from "axios";
+import headerPage from "~/components/public/header.vue";
+import footerPage from "~/components/public/footer.vue";
 export default {
+  components: {footerPage, headerPage},
   setup(){
     const runtimeConfig = useRuntimeConfig()
 

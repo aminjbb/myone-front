@@ -1,5 +1,7 @@
 <template>
   <div>
+    <headerPage/>
+
     <div class="landing-car-banner">
       <img src="~/assets/images/landing-car-banner.png">
     </div>
@@ -250,10 +252,16 @@
 
       </v-row>
     </div>
+    <footerPage/>
 
   </div>
 </template>
 
 <script>
-export default {}
+import footerPage from "~/components/public/footer.vue";
+import headerPage from "~/components/public/header.vue";
+
+export default {
+  components: {headerPage, footerPage}
+}
 </script>

@@ -1,5 +1,7 @@
 <template>
   <div>
+    <headerPage/>
+
     <div class="d-flex justify-center align-center pr-15">
       <div class="about-us-banner">
         <v-row justify="center" align="center">
@@ -184,12 +186,17 @@
 
       </div>
     </div>
+    <footerPage/>
+
   </div>
 </template>
 
 <script>
 import About from '~/composables/About.js'
+import headerPage from "~/components/public/header.vue";
+import footerPage from "~/components/public/footer.vue";
 export default {
+  components: {footerPage, headerPage},
   setup(){
     const {detail , goals , strategy , brands ,socialResponsibility ,customer} = new About()
     return {detail , goals , strategy , brands ,socialResponsibility ,customer}

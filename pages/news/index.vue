@@ -1,5 +1,7 @@
 <template>
   <div>
+    <headerPage/>
+
     <div class="news-banner">
       <div class="text-center">
         <span class="news-banner--title text-white">
@@ -116,12 +118,17 @@
         </nuxt-link>
       </div>
     </div>
+    <footerPage/>
+
   </div>
 </template>
 
 <script>
 import News from '~/composables/News.js'
+import headerPage from "~/components/public/header.vue";
+import footerPage from "~/components/public/footer.vue";
 export default {
+  components: {footerPage, headerPage},
   setup(){
     const {detail} = new News()
     return { detail}

@@ -1,5 +1,7 @@
 <template>
   <div>
+    <headerPage/>
+
     <div class="d-flex justify-center mt-12">
       <div class="news-title">
         <p class="w700">
@@ -40,9 +42,16 @@
         </div>
       </div>
     </div>
+    <footerPage/>
+
   </div>
 </template>
 
 <script>
-export default {}
+import headerPage from "~/components/public/header.vue";
+import footerPage from "~/components/public/footer.vue";
+
+export default {
+  components: {footerPage, headerPage}
+}
 </script>
