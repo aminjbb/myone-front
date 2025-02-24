@@ -5,5 +5,12 @@
 // tools
 @use "./general/font";
 @use "./tools/typo";
+@use "./aboutUs/aboutUs";
+@use "./service/service";
+@use "./faq/faq";
+@use "./news/news";
+@use "./contactUs/contactUs";
+@use "./team/team";
 @use "./home/home";
+@use "./car/car";
 @use "./public";

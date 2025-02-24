@@ -1,4 +1,6 @@
-@mixin typo($start: 12, $end: 50) {
+
+
+@mixin typo($start: 12, $end: 90) {
   @for $i from $start through $end {
     $class: "t#{$i}";
 
@@ -10,16 +12,6 @@
 }
 
 
-@mixin font-variation-wght($start: 100, $end: 700, $step: 100) {
-  @for $i from $start through $end {
-    $class: "w#{$i}";
-
-    .#{$class} {
-      font-variation-settings: "wght" #{$i};
-      // You can add more styles here if needed
-    }
-  }
-}
 
 @mixin font-wight($start: 100, $end: 900, $step: 100) {
   @for $i from $start through $end {
@@ -45,7 +37,6 @@
 
 
 // Usage
-@include typo(10, 50);
+@include typo(10, 90);
 @include line-height(16, 50);
-@include font-variation-wght(100, 900, 100);
 @include font-wight(100, 700, 100);

@@ -1,0 +1,286 @@
+@use "sass:map" as map;
+
+$breakpoints: (
+        "small": 480px,
+        "medium": 768px,
+        "large": 1024px,
+        "xlarge": 1200px
+);
+
+@mixin respond-to($size) {
+  @if map.has-key($breakpoints, $size) {
+    @media (max-width: map.get($breakpoints, $size)) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint not found: #{$size}";
+  }
+}
+.car-title{
+  font-size: 40px;
+  font-weight: 700;
+  @include respond-to("small") {
+    font-size: 24px;
+    font-weight: 700;
+
+  }
+}
+
+.car-price{
+  font-size: 28px;
+  font-weight: 600;
+  @include respond-to("small") {
+    font-size: 16px;
+    font-weight: 600;
+
+  }
+}
+.car-gallary{
+
+  min-height: 632px;
+  @include respond-to("medium") {
+    min-height: 450px;
+  }
+  &--main-image{
+    img{
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+    }
+  }
+  &--images{
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    @include respond-to("small") {
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: 1fr;
+
+    }
+    img{
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+    }
+  }
+}
+.review-title{
+  font-size:28px;
+  font-weight: 600;
+  @include respond-to("small") {
+    font-size:20px;
+  }
+}
+.review-box{
+  border-radius: 8px;
+  border: 1px solid #CFD7C7;
+  background: #F1F3EE;
+  padding: 8px;
+}
+.tab-box{
+  display: flex;
+  justify-content: start;
+  gap: 8px;
+  &--tab-item{
+    width: 25%;
+    height: 76px;
+    border-radius: 8px;
+    background: #D9E4E8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #85868E;
+    @include respond-to("small") {
+      height: 54px;
+      font-size: 14px;
+      font-weight: 600;
+      padding:0 5px;
+      text-align: center;
+    }
+  }
+  &--tab-active{
+    background: #40798C;
+    color: white;
+  }
+}
+
+
+.tab-item-title{
+  font-size:20px;
+  font-weight: 600;
+  @include respond-to("small") {
+    font-size:16px;
+    font-weight: 600;
+  }
+}
+.tab-active-general{
+  &--pricing{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 114px;
+    border: 1px solid #E2E7DD;
+    background: #fff;
+    border-radius: 8px;
+    margin-top:24px;
+    padding: 0 36px;
+    &--item{
+      color: #ADAFB3;
+      font-size: 20px;
+      font-weight: 400;
+    }
+    &--value{
+      color: #232934;
+      font-size: 24px;
+      font-weight: 600;
+
+    }
+  }
+  &--detail{
+    min-height: 146px;
+    border: 1px solid #E2E7DD;
+    background: #fff;
+    border-radius: 8px;
+    margin-top:24px;
+    padding: 20px 36px;
+    &--item{
+      font-size: 20px;
+      color: #ADAFB3;
+    }
+    &--value{
+      font-size: 20px;
+      color: #232934;
+    }
+  }
+}
+
+.tab-active-detail{
+
+  &--box{
+    border-radius: 8px;
+    border: 1px solid #E2E7DD;
+    background: #FFFFFF;
+    padding: 32px 20px;
+    &--title{
+      font-size:16px;
+      font-weight: 400;
+      @include respond-to("small") {
+        font-size:13px;
+
+      }
+    }
+    &--value{
+      font-size:16px;
+      font-weight: 600;
+      @include respond-to("small") {
+        font-size:13px;
+
+      }
+    }
+  }
+
+}
+
+.contact-us-box{
+  border-radius: 8px;
+  border: 1px solid #CFD7C7;
+  background: #F1F3EE;
+  min-height: 573px;
+  padding:16px 12px;
+}
+
+
+.landing-car-banner{
+  img{
+    width: 100%;
+    max-height: 670px;
+  }
+}
+
+.car-contact{
+  &--title{
+    font-size: 28px;
+    font-weight: 600;
+    @include respond-to("small") {
+      font-size: 16px;
+
+    }
+  }
+  &--main-title{
+  //  t14 w400
+    font-size: 14px;
+    font-weight: 400;
+    @include respond-to("small") {
+      font-size: 12px;
+
+    }
+  }
+}
+
+.landing-data-box{
+  height: 303px;
+  padding: 45px 24px;
+  background: #1F1A55;
+  span{
+    font-size: 24px;
+    font-weight: 600;
+  }
+  p{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 32px;
+  }
+}
+
+.landing-data-image{
+  img{
+    height: 303px;
+    width: 100%;
+  }
+}
+.landing-steper-title{
+  span{
+    font-size: 24px;
+    font-weight: 600;
+  }
+}
+
+.landing-steper-description{
+  span{
+    font-size: 24px;
+    font-weight: 600;
+  }
+  p{
+    font-size: 14px;
+    font-weight: 400;
+  }
+}
+
+.landing-main-image{
+  img{
+    width: 100%;
+    height: 426px;
+  }
+}
+
+.landing-card{
+  height: 212px;
+  border-radius: 8px;
+  background: #F1F3EE;
+  padding: 24px;
+  span{
+    font-size: 20px;
+    font-weight: 600;
+  }
+  p{
+    font-size: 14px;
+    font-weight: 400;
+  }
+  &--link{
+    font-size: 12px;
+    font-weight: 600;
+  }
+}

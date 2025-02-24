@@ -1,0 +1,179 @@
+@use "sass:map" as map;
+
+$breakpoints: (
+        "small": 480px,
+        "medium": 768px,
+        "large": 1024px,
+        "xlarge": 1200px
+);
+
+@mixin respond-to($size) {
+  @if map.has-key($breakpoints, $size) {
+    @media (max-width: map.get($breakpoints, $size)) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint not found: #{$size}";
+  }
+}
+.contact-us-banner{
+  background-image: url('~/assets/images/contanct-us.png');
+  background-size: 100%;
+  height: 785px;
+  position: relative;
+  width: 100%;
+  @include respond-to("small") {
+    height: 516px;
+    background-size: 100% 100%;
+
+  }
+  &--info{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 16px;
+    min-height: 244px;
+    border-radius: 8px;
+    background: linear-gradient(79deg, rgba(242, 242, 242, 0.80) 1.96%, rgba(255, 255, 255, 0.40) 100.91%);
+    backdrop-filter: blur(50px);
+    opacity: 0.9;
+    @include respond-to("small") {
+      min-height: 172px;
+    }
+    &--title{
+      font-size: 24px;
+      font-weight: 600;
+      @include respond-to("small") {
+        font-size: 20px;
+      }
+    }
+    &--address{
+      font-size: 18px;
+      font-weight: 400;
+      @include respond-to("small") {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.contact-us{
+  width: 696px;
+  &--box{
+    min-height: 652px;
+    border: 1px solid #CFD7C7;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 2px rgba(175, 161, 139, 0.30);
+    background: #F1F3EE;
+    opacity: 0.6;
+    margin-top: 19px;
+
+  }
+  &--title{
+  //  t28 w700
+    font-size: 28px;
+    font-weight: 700;
+    @include respond-to("small") {
+      font-size: 16px;
+    }
+  }
+  &--desc{
+    font-size: 17px;
+    font-weight: 400;
+    @include respond-to("small") {
+      font-size: 12px;
+    }
+  }
+}
+
+.representation-box{
+  min-height: 674px;
+  background: #F1F3EE;
+  &--title{
+    font-size: 24px;
+    font-weight: 700;
+    @include respond-to("small") {
+      font-size: 16px;
+    }
+  }
+  &--tabel{
+    height: 50px;
+    display: grid;
+    margin: 0 36px;
+
+    grid-template-columns: 1.5fr 0.95fr 1fr 4fr 2fr 2fr 2fr;
+    div{
+      display: flex;
+      align-items: center;
+      margin: 0 10px;
+
+    }
+    &--row1{
+      height: 50px;
+      display: grid;
+      grid-template-columns: 1.5fr 0.95fr 1fr 4fr 2fr 2fr 2fr;
+      background: #79769959;
+      border-top:1px solid #797699;
+      border-bottom:1px solid #797699;
+      margin: 0 36px;
+      div{
+        display: flex;
+        align-items: center;
+        color: #333642 !important;
+        margin: 0 10px;
+
+
+      }
+    }
+    &--row2{
+      height: 50px;
+      display: grid;
+      grid-template-columns: 1.5fr 0.95fr 1fr 4fr 2fr 2fr 2fr;
+      background: #e2e7dd8c;
+      border-top:1px solid #797699;
+      border-bottom:1px solid #797699;
+      margin: 0 36px;
+
+      div{
+        display: flex;
+        align-items: center;
+        color: #333642 !important;
+        margin: 0 10px;
+
+
+      }
+    }
+  }
+  &--mobile{
+    min-height: 247px;
+    border-radius: 2px;
+    background: #bcbacca3;
+
+  }
+  &--mobile1{
+    min-height: 247px;
+    border-radius: 2px;
+    background: rgba(226, 231, 221, 0.5);
+  }
+  &--avatar-box{
+    width: 32px;
+    height: 32px;
+    background:#BCBACC;
+    border-radius: 4px;
+    opacity: 1!important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &--avatar-box1{
+    width: 32px;
+    height: 32px;
+    background:#E2E7DD;
+    border-radius: 4px;
+    opacity: 1!important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

@@ -1,0 +1,172 @@
+@use "sass:map" as map;
+
+$breakpoints: (
+        "small": 480px,
+        "medium": 768px,
+        "large": 1024px,
+        "xlarge": 1200px
+);
+
+@mixin respond-to($size) {
+  @if map.has-key($breakpoints, $size) {
+    @media (max-width: map.get($breakpoints, $size)) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint not found: #{$size}";
+  }
+}
+
+.team-banner {
+  width: 100%;
+  position: relative;
+  min-height: 688px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  @include respond-to("small") {
+    min-height: 210px;
+
+    .box{
+      height: 210px;
+    }
+    img{
+      width: 100%;
+      height: 210px;
+    }
+  }
+  &--team {
+    margin-bottom: 174px;
+    margin-right: -122px;
+    p{
+      font-size: 48px;
+      font-weight: 700;
+      @include respond-to("small") {
+        font-size: 20px;
+      }
+    }
+    span{
+      font-size: 32px;
+      font-weight: 600;
+      @include respond-to("small") {
+        font-size: 14px;
+      }
+    }
+    @include respond-to("small") {
+      position: absolute;
+      top: 147px;
+      right: 212px;
+    }
+  }
+
+  &--human {
+    span{
+      font-size: 70px;
+      font-weight: 700;
+      @include respond-to("small"){
+        font-size: 28px;
+
+      }
+    }
+    opacity: 0.3;
+    rotate: 90deg;
+    margin-bottom: 314px;
+    margin-right: 100px;
+    @include respond-to("small"){
+      position: absolute;
+      top: 103px;
+      right: -114px;
+    }
+
+  }
+}
+.team-description{
+  &--desc{
+  //  t28 w400
+    font-size: 28px;
+    font-weight: 400;
+    @include respond-to("small") {
+      font-size: 14px;
+      padding: 0  15px;
+    }
+  }
+  &--title{
+    font-size: 36px;
+    font-weight: 600;
+    @include respond-to("small") {
+      font-size: 16px;
+    }
+  }
+}
+.team-person {
+
+  margin-top: 70px;
+
+  &--card {
+    min-height: 337px;
+    width: 100%;
+    background: #F1F3EE;
+    border-radius: 8px;
+    @include respond-to("small") {
+      min-height: 226px;
+    }
+    &--name {
+      font-size: 22px;
+      font-weight: 600;
+      margin-top: 5px;
+      padding: 0 16px;
+      @include respond-to("small") {
+        font-size: 14px;
+
+      }
+    }
+
+    &--info {
+      font-size: 16px;
+      font-weight: 400;
+      padding: 0 16px;
+      margin-top: 11px;
+
+      @include respond-to("small") {
+        font-size: 12px;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 232px;
+      @include respond-to("small") {
+        height: 143px;
+      }
+    }
+  }
+}
+
+.my-one{
+  &--title{
+  //  t32 w700
+    font-size: 32px;
+    font-weight: 700;
+    @include respond-to("small") {
+      font-size: 16px;
+
+    }
+  }
+  &--desc{
+  //  t20 w400
+    font-size: 20px;
+    font-weight: 400;
+    @include respond-to("small") {
+      font-size: 14px;
+
+    }
+  }
+  &--cover{
+    img{
+      width: 100%;
+      @include respond-to("small") {
+        height: 169px;
+
+      }
+    }
+  }
+}

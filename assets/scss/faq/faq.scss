@@ -1,0 +1,74 @@
+
+@use "sass:map" as map;
+
+$breakpoints: (
+        "small": 480px,
+        "medium": 768px,
+        "large": 1024px,
+        "xlarge": 1200px
+);
+
+@mixin respond-to($size) {
+  @if map.has-key($breakpoints, $size) {
+    @media (max-width: map.get($breakpoints, $size)) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint not found: #{$size}";
+  }
+}
+.faq{
+  &--head{
+    font-size: 28px;
+    font-weight: 700;
+    @include respond-to('small'){
+      font-size: 20px;
+
+    }
+  }
+  &--desc{
+    font-size: 16px;
+    font-weight: 400;
+    @include respond-to('small'){
+      font-size: 14px;
+
+    }
+  }
+  &--avatar{
+    width: 44px;
+    height: 44px;
+    min-height: 44px;
+    min-width: 44px;
+    max-width: 44px;
+    max-height: 44px;
+    border-radius: 8px;
+    background: #BCBACC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include respond-to('small'){
+      width: 36px;
+      height: 36px;
+      min-height: 36px;
+      min-width: 36px;
+      max-width: 36px;
+      max-height: 36px;
+    }
+  }
+  &--title{
+    font-size: 16px;
+    font-weight: 500;
+    @include respond-to('small'){
+      font-size: 13px;
+
+    }
+  }
+  &--description{
+    font-size: 14px;
+    font-weight: 400;
+    @include respond-to('small'){
+      font-size: 12px;
+
+    }
+  }
+}

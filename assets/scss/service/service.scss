@@ -1,0 +1,225 @@
+@use "sass:map" as map;
+
+$breakpoints: (
+        "small": 480px,
+        "medium": 768px,
+        "large": 1024px,
+        "xlarge": 1200px
+);
+
+@mixin respond-to($size) {
+  @if map.has-key($breakpoints, $size) {
+    @media (max-width: map.get($breakpoints, $size)) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint not found: #{$size}";
+  }
+}
+.service{
+  &--head{
+    font-size: 28px;
+    font-weight: 700;
+    @include respond-to('small'){
+      font-size: 20px;
+
+    }
+  }
+  &--desc{
+    font-size: 16px;
+    font-weight: 400;
+    @include respond-to('small'){
+      font-size: 14px;
+
+    }
+  }
+  &--card1{
+    min-height: 178px;
+    border-radius: 8px;
+    background: linear-gradient(94deg, #B3C8CF 0.85%, #89A8B2 100%);
+    display: flex;
+    @include respond-to('small'){
+      min-height: 140px;
+
+    }
+    &--title{
+      font-size: 22px;
+      font-weight: 500;
+      @include respond-to('small'){
+        font-size: 14px;
+
+      }
+    }
+    &--description{
+      font-size: 14px;
+      font-weight: 400;
+      @include respond-to('small'){
+        font-size: 12px;
+
+      }
+    }
+    &--image{
+      height: 100%;
+      display: flex;
+      align-items: end;
+      img{
+        height: 90%;
+        border-radius: 0 199px 0 0px;
+        @include respond-to('small'){
+          width: 136px;
+        }
+      }
+    }
+  }
+  &--card2{
+    min-height: 178px;
+    border-radius: 8px;
+    background: linear-gradient(94deg, #F0E8DD 0.85%, #CAB89A 100%);
+    display: flex;
+    @include respond-to('small'){
+      min-height: 140px;
+
+    }
+    &--title{
+      font-size: 22px;
+      font-weight: 500;
+      @include respond-to('small'){
+        font-size: 14px;
+
+      }
+    }
+    &--description{
+      font-size: 14px;
+      font-weight: 400;
+      @include respond-to('small'){
+        font-size: 12px;
+
+      }
+    }
+    &--image{
+      height: 100%;
+      img{
+        height: 90%;
+        display: flex;
+        align-items: start;
+        @include respond-to('small'){
+          width: 136px;
+        }
+      }
+    }
+  }
+  &--card3{
+    min-height: 178px;
+    border-radius: 8px;
+    background: linear-gradient(94deg, #D3CEDF 0.85%, #B1A7C8 100%);
+    display: flex;
+    @include respond-to('small'){
+      min-height: 140px;
+
+    }
+    &--title{
+      font-size: 22px;
+      font-weight: 500;
+      @include respond-to('small'){
+        font-size: 14px;
+
+      }
+    }
+    &--description{
+      font-size: 14px;
+      font-weight: 400;
+      @include respond-to('small'){
+        font-size: 12px;
+
+      }
+    }
+    &--image{
+      height: 100%;
+      img{
+        height: 100%;
+        border-radius: 0 120px 184px 0px;
+        @include respond-to('small'){
+          width: 136px;
+        }
+      }
+    }
+  }
+  &--card4{
+    min-height: 178px;
+    border-radius: 8px;
+    background: linear-gradient(94deg, #BCCCDC 0.85%, #9AA6B2 100%);
+    @include respond-to('small'){
+      min-height: 140px;
+
+    }
+    display: flex;
+    &--title{
+      font-size: 22px;
+      font-weight: 500;
+      @include respond-to('small'){
+        font-size: 14px;
+
+      }
+    }
+    &--description{
+      font-size: 14px;
+      font-weight: 400;
+      @include respond-to('small'){
+        font-size: 12px;
+
+      }
+    }
+    &--image{
+      height: 100%;
+      overflow: hidden;
+
+      img{
+        margin-left: 449px;
+        margin-top: -39px;
+        height: 97%;
+        border-radius: 48%;
+        width: 171px;
+        @include respond-to('small'){
+          width: 136px;
+        }}
+    }
+  }
+  &--card5{
+    min-height: 178px;
+    border-radius: 8px;
+    background: linear-gradient(94deg, #D6DAC8 0.85%, #9CAFAA 100%);
+    display: flex;
+    @include respond-to('small'){
+      min-height: 140px;
+
+    }
+    &--title{
+      font-size: 22px;
+      font-weight: 500;
+      @include respond-to('small'){
+        font-size: 14px;
+
+      }
+    }
+    &--description{
+      font-size: 14px;
+      font-weight: 400;
+      @include respond-to('small'){
+        font-size: 12px;
+
+      }
+    }
+    &--image{
+      height: 100%;
+      display: flex;
+      align-items: start;
+      img{
+        height: 90%;
+        border-radius: 16px 21px 70px 35px;
+        @include respond-to('small'){
+          width: 136px;
+        }}
+    }
+  }
+
+}

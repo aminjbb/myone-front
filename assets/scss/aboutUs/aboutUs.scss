@@ -1,0 +1,98 @@
+.about-us-banner{
+  width: 90%;
+  margin-top: 93px;
+}
+
+.about-us-image-box{
+  width: 578px;
+  height: 288px;
+  background: #70A9A1;
+  border-radius: 2px;
+  position: relative;
+  img{
+    position: absolute;
+    top: -16px;
+    left: -16px;
+  }
+}
+.about-us-image-box2{
+  width: 578px;
+  height: 288px;
+  background: #797699;
+  border-radius: 2px;
+  position: relative;
+  img{
+    position: absolute;
+    top: -16px;
+    left: 16px;
+  }
+}
+
+.sterategy-box{
+  height: 624px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url("~/assets/images/aboutbanner2.png");
+  background-size: 100%;
+  &--items{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    gap:16px;
+    flex-wrap: wrap
+
+
+
+  }
+  &--item{
+    width: 221px;
+    height: 152px;
+    background: #292A2F;
+    backdrop-filter: blur(50px);
+    border-radius: 8px;
+    opacity: 0.9;
+    position: relative;
+    &--icon{
+      position: absolute;
+      top: 16px;
+      left: 16px;
+    }
+    &--description{
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #fff;
+    }
+  }
+}
+
+.about-brand{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  &--logo{
+    width: 195px;
+    height: 195px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: #F1F3EE;
+  }
+}
+
+.suppliers-sections{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:64px;
+  margin-top: 30px;
+}

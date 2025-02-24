@@ -1,96 +1,54 @@
 <template>
-  <div class="mt-16 ">
-    <div class="px-12 mb-4 text-right">
-      <span class="t40 w700">
+  <div class="mt-16 " ref="animatedElement">
+    <div class="px-12 mb-4 text-right our-product-title">
+      <span class="animate__animated animate__bounce animate__delay-2s">
         تولیدات ما
       </span>
     </div>
     <div class="our-product">
-      <v-row justify="center" class="px-3">
-        <v-col cols="2" class="pa-0 ma-0 image-box">
-          <div >
-            <img src="@/assets/images/devoo.png" alt="">
-          </div>
-          <div class="back-color px-5 pt-8">
+      <div class="image-box" v-for="product in productList">
+        <div class="image-box--image">
+<!--          @/assets/images/devoo.png-->
+          <img :src="product?.cover?.path ? product?.cover?.path :''" alt="" class="image-box--image">
+        </div>
+        <div class="back-color px-5 pt-8">
             <span class="text-white t26 w600 ">
-              دوو باس
+              {{ product?.title }}
             </span>
-            <span class="more-icon">
-              <img width="32" height="32" src="@/assets/images/icones/more-white.svg" alt="" class="mt-3">
+          <span class="more-icon">
+              <img width="32" height="32" src="@/assets/images/icones/more-white.svg" alt="" >
             </span>
-          </div>
-        </v-col>
-        <v-col cols="2"  class="pa-0 ma-0 image-box">
-          <div >
-            <img src="@/assets/images/devoo.png" alt="">
-          </div>
-          <div class="back-color px-5 pt-8">
-            <span class="text-white t26 w600 ">
-              آرتا مینی‌باس
-            </span>
-            <span class="more-icon">
-              <img width="32" height="32" src="@/assets/images/icones/more-white.svg" alt="" class="mt-3">
-            </span>
-          </div>
+        </div>
+      </div>
 
-        </v-col>
-        <v-col cols="2"  class="pa-0 ma-0 image-box">
-          <div >
-            <img src="@/assets/images/devoo.png" alt="">
-          </div>
-                  <div class="back-color px-5 pt-8">
-                    <span class="text-white t26 w600 ">
-                      آرتا ‌باس
-                    </span>
-                    <span class="more-icon">
-                      <img width="32" height="32" src="@/assets/images/icones/more-white.svg" alt="" class="mt-3">
-                    </span>
-                  </div>
-        </v-col>
-        <v-col cols="2"  class="pa-0 ma-0 image-box">
-          <div >
-            <img src="@/assets/images/devoo.png" alt="">
-          </div>
-                  <div class="back-color px-5 pt-8">
-                    <span class="text-white t26 w600" >
-                      آرتا ‌پلاس
-                    </span>
-                    <span class="more-icon">
-                      <img width="32" height="32" src="@/assets/images/icones/more-white.svg" alt="" class="mt-3">
-                    </span>
-                  </div>
-        </v-col>
-        <v-col cols="2"  class="pa-0 ma-0 image-box">
-          <div>
-            <img src="@/assets/images/devoo.png" alt="">
-          </div>
-                  <div class="back-color px-5 pt-8">
-                    <span class="text-white t26 w600">
-                      آرتا ‌باس
-                    </span>
-                    <span class="more-icon">
-                      <img width="32" height="32" src="@/assets/images/icones/more-white.svg" alt="" class="mt-3">
-                    </span>
-                  </div>
-        </v-col>
-        <v-col cols="2"  class="pa-0 ma-0 image-box">
-          <div>
-            <img src="@/assets/images/devoo.png" alt="">
-          </div>
-                  <div class="back-color px-5 pt-8">
-                    <span class="text-white t26 w600 ">
-                      آرتا مینی‌باس
-                    </span>
-                    <span class="more-icon">
-                      <img width="32" height="32" src="@/assets/images/icones/more-white.svg" alt="" class="mt-3">
-                    </span>
-                  </div>
-        </v-col>
-      </v-row>
+
     </div>
   </div>
 </template>
-
 <script setup>
+import { ref, onMounted } from 'vue';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+gsap.registerPlugin(ScrollTrigger);
+const props = defineProps({
+  productList: {
+    type: Array,
+    required: true,
+  },
+});
+const animatedElement = ref(null);
+
+onMounted(() => {
+  gsap.from(animatedElement.value, {
+    opacity: 0,
+    y: 50,
+    duration: 1,
+    scrollTrigger: {
+      trigger: animatedElement.value,
+      start: 'top 0%',
+      toggleActions: 'play none none reverse',
+    },
+  });
+});
 </script>
