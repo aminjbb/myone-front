@@ -49,26 +49,37 @@
           <img src="~/assets/images/icones/downChevron.svg" alt="">
         </div>
       </div>
-      <div @mouseover="showMenu = false" >
+      <nuxt-link to="/news">
+        <div @mouseover="showMenu = false" >
         <span class="t16 w500 text-Graylighten5">
           اخبار
         </span>
-      </div>
-      <div @mouseover="showMenu = false">
+        </div>
+      </nuxt-link>
+      <nuxt-link to="/team">
+        <div @mouseover="showMenu = false">
         <span class="t16 w500 text-Graylighten5">
           تیم ما
         </span>
-      </div>
-      <div @mouseover="showMenu = false">
+        </div>
+
+      </nuxt-link>
+      <nuxt-link to="/contact-us">
+        <div @mouseover="showMenu = false">
         <span class="t16 w500 text-Graylighten5">
           ارتباط با ما
         </span>
-      </div>
-      <div @mouseover="showMenu = false">
+        </div>
+
+      </nuxt-link>
+      <nuxt-link to="/about-us">
+        <div @mouseover="showMenu = false">
         <span class="t16 w500 text-Graylighten5">
           درباره ما
         </span>
-      </div>
+        </div>
+
+      </nuxt-link>
     </div>
     <div class="header-menu-mobile px-10 d-md-none d-flex">
       <div class="mt-2 " @click="drawer=true">

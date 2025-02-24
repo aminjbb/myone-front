@@ -27,15 +27,18 @@ gsap.registerPlugin(ScrollTrigger);
 const animatedElement = ref(null);
 
 onMounted(() => {
-  gsap.from(animatedElement.value, {
-    opacity: 0,
-    y: 50,
-    duration: 1,
-    scrollTrigger: {
-      trigger: animatedElement.value,
-      start: 'top 10%',
-      toggleActions: 'play none none reverse',
-    },
-  });
+  if ( window.innerWidth > 769){
+    gsap.from(animatedElement.value, {
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      scrollTrigger: {
+        trigger: animatedElement.value,
+        start: 'top 10%',
+        toggleActions: 'play none none reverse',
+      },
+    });
+  }
+
 });
 </script>
