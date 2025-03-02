@@ -1,17 +1,24 @@
 <template>
-  <div>
+  <div :class="lang === 'en' ? 'd-ltr' :''">
     <headerPage/>
 
     <div class="d-flex justify-center align-center pr-15">
       <div class="about-us-banner">
         <v-row justify="center" align="center">
           <v-col cols="4">
-            <p class="t40 w700 text-Primarydarken3 ">
+            <p class="t40 w700 text-Primarydarken3 " v-if="lang === 'fa'">
               ما تیم
 
             </p>
-            <p class="t40 w700 text-Primarydarken3">
+            <p class="t40 w700 text-Primarydarken3 " v-else>
+              We are
+
+            </p>
+            <p class="t40 w700 text-Primarydarken3" v-if="lang === 'fa'">
               مای‌وان هستیم
+
+            </p><p class="t40 w700 text-Primarydarken3" v-else>
+            MYONE team
 
             </p>
           </v-col>
@@ -69,8 +76,10 @@
 
     <div >
       <div class="px-15 mx-10 mt-9 text-center" >
-        <span class="t36 w700 text-Primarydarken3 ">
+        <span class="t36 w700 text-Primarydarken3 " v-if="lang === 'fa'">
          آینده و اهداف ما
+        </span> <span class="t36 w700 text-Primarydarken3 " v-else>
+        Our Purpose and Future
         </span>
 
       </div>
@@ -83,7 +92,7 @@
               </div>
             </v-col>
             <v-col cols="6">
-              <div class="text-right pr-10 pt-10">
+              <div class=" pr-10 pt-10">
               <span class="t20 w600 text-Graylighten1">
                 {{ item?.title }}
               </span>
@@ -94,7 +103,7 @@
           </template>
           <template v-if="index==1">
             <v-col cols="6">
-              <div class="text-right pl-10 pt-10">
+              <div class=" pl-10 pt-10">
               <span class="t20 w600 text-Graylighten1">
                 {{ item?.title }}
               </span>
@@ -114,8 +123,11 @@
     </div>
     <div >
       <div class="px-15 mx-10 mt-15 text-center" >
-        <span class="t36 w700 text-Primarydarken3 ">
+        <span class="t36 w700 text-Primarydarken3 " v-if="lang === 'fa'">
         استراتژی سازمانی
+        </span>
+        <span class="t36 w700 text-Primarydarken3 " v-else>
+        Organizational Strategy
         </span>
 
       </div>
@@ -139,7 +151,8 @@
 
     <div class="mt-15 pt-10">
       <div class="text-center ">
-        <span class="t36 w700 text-Primarydarken3">برندهای ما</span>
+        <span class="t36 w700 text-Primarydarken3" v-if="lang==='fa'">برندهای ما</span>
+        <span class="t36 w700 text-Primarydarken3" v-else>Our Brands</span>
       </div>
       <div class="my-9 about-brand">
         <div class="" v-for="(item , index ) in brands" :key="`brand-${index}`">
@@ -157,10 +170,11 @@
 
     <div class="mt-15 pt-10 px-15 mx-10">
       <div>
-        <span class="t24 w600 text-Primarydarken3">
+        <span class="t24 w600 text-Primarydarken3" v-if="lang==='fa'">
           مسئولیت اجتماعی
+        </span>        <span class="t24 w600 text-Primarydarken3" v-else>
+         Social Responsibility
         </span>
-        {{}}
         <div v-for="(item , index) in socialResponsibility " :key="`socialResponsibility-${index}`">
           <p class="t20 w400 text-Primarydarken2">
             {{ item?.title }}
@@ -176,8 +190,10 @@
 
     <div class="mt-15">
       <div class="text-center">
-        <span class="t28 w600 text-Primarydarken3 ">
+        <span class="t28 w600 text-Primarydarken3 " v-if="lang==='fa'">
           برخی از مشتریان سبلان خودرو
+        </span> <span class="t28 w600 text-Primarydarken3 " v-else>
+          Some Customers of Sabalan Khodro
         </span>
       </div>
 
@@ -198,8 +214,8 @@ import footerPage from "~/components/public/footer.vue";
 export default {
   components: {footerPage, headerPage},
   setup(){
-    const {detail , goals , strategy , brands ,socialResponsibility ,customer} = new About()
-    return {detail , goals , strategy , brands ,socialResponsibility ,customer}
+    const {detail , goals , strategy , brands ,socialResponsibility ,customer , lang} = new About()
+    return {detail , goals , strategy , brands ,socialResponsibility ,customer , lang}
   },
   computed:{
     aboutUsSection(){

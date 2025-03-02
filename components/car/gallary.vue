@@ -23,21 +23,10 @@
         <v-col cols="12" md="5" clas>
           <div>
             <div class="car-gallary--images">
-              <div>
-                <img src="~/assets/images/pdpcar2.png" alt="">
+              <div v-for="(item , index) in detail?.files">
+                <img :src="item?.path" alt="">
               </div>
-              <div>
-                <img src="~/assets/images/pdpcar2.png" alt="">
-              </div>
-              <div>
-                <img src="~/assets/images/pdpcar2.png" alt="">
-              </div>
-              <div>
-                <img src="~/assets/images/pdpcar2.png" alt="">
-              </div>
-              <div>
-                <img src="~/assets/images/pdpcar2.png" alt="">
-              </div>
+
             </div>
           </div>
 
@@ -50,7 +39,8 @@
 <script>
   export default {
     props: {
-      detail:null
+      detail:null,
+      lang:'fa'
     }
   }
 </script>

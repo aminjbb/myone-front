@@ -184,3 +184,11 @@ $breakpoints: (
   overflow: scroll;
   gap: 10px;
 }
+
+.d-ltr{
+  *{
+    direction: ltr !important;
+    font-family: 'Teko', sans-serif !important;
+
+  }
+}

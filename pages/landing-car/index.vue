@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="lang === 'en' ? 'd-ltr' :''">
     <headerPage/>
 
     <div class="landing-car-banner">
@@ -260,8 +260,15 @@
 <script>
 import footerPage from "~/components/public/footer.vue";
 import headerPage from "~/components/public/header.vue";
+import {useRoute} from "#vue-router";
 
 export default {
+  setup(){
+    const route = useRoute()
+    const lang = route.query.lang === 'en'? 'en' :'fa';
+    return {lang}
+
+  },
   components: {headerPage, footerPage}
 }
 </script>

@@ -4,48 +4,60 @@
       <div class="footer-box--footer-link">
         <div class="pr-5">
           <div>
-          <span class="text-Graylighten5 t16 w500">
+          <span class="text-Graylighten5 t16 w500" v-if="lang==='fa'">
             دسترسی سریع
           </span>
-          </div>
-          <div class="mt-7">
-            <p class="text-Graylighten3 t14 w400">درباره ما</p>
-            <p class="text-Graylighten3 t14 w400 mt-4">اخبار</p>
-            <p class="text-Graylighten3 t14 w400 mt-4">خدمات</p>
-            <p class="text-Graylighten3 t14 w400 mt-4">سوالات متداول</p>
-          </div>
-        </div>
-        <div class="pr-5">
-          <div>
-          <span class="text-Graylighten5 t16 w500">
-           محصولات
+            <span class="text-Graylighten5 t16 w500" v-else>
+           Quick links
           </span>
           </div>
           <div class="mt-7">
-            <p class="text-Graylighten3 t14 w400">اتوبوس دوو</p>
-            <p class="text-Graylighten3 t14 w400 mt-4">مینی‌بوس آرتا</p>
-            <p class="text-Graylighten3 t14 w400 mt-4">اتوبوس آرتا</p>
-            <p class="text-Graylighten3 t14 w400 mt-4">مینی‌بوس آرتاپلاس</p>
+            <p class="text-Graylighten3 t14 w400" v-if="lang==='fa'">درباره ما</p>
+            <p class="text-Graylighten3 t14 w400" v-else> About Us</p>
+            <p class="text-Graylighten3 t14 w400 mt-4" v-if="lang==='fa'">اخبار</p>
+            <p class="text-Graylighten3 t14 w400 mt-4" v-else>News</p>
+            <p class="text-Graylighten3 t14 w400 mt-4" v-if="lang==='fa'">خدمات</p>
+            <p class="text-Graylighten3 t14 w400 mt-4" v-else>News</p>
+            <p class="text-Graylighten3 t14 w400 mt-4" v-if="lang==='fa'">سوالات متداول</p>
+            <p class="text-Graylighten3 t14 w400 mt-4" v-else> News</p>
           </div>
         </div>
         <div class="pr-5">
           <div>
-          <span class="text-Graylighten5 t16 w500">
+          <span class="text-Graylighten5 t16 w500"  v-if="lang==='fa'">
+           محصولات
+          </span>
+            <span class="text-Graylighten5 t16 w500" v-else>
+           Products
+          </span>
+          </div>
+          <div class="mt-7">
+            <p class="text-Graylighten3 t14 w400" v-for="(product , index) in HomeProductLists" :key="`product-footer${index}`">
+              {{ product?.name }}</p>
+          </div>
+        </div>
+        <div class="pr-5">
+          <div>
+          <span class="text-Graylighten5 t16 w500" v-if="lang==='fa'">
            تماس با ما
+          </span>
+            <span class="text-Graylighten5 t16 w500" v-else>
+           Contact Us
           </span>
           </div>
           <div class="mt-7">
             <div class="d-flex align-center" >
-              <span><img src="~/assets/images/icones/phone.svg" alt="" class=" ml-2"></span>
+              <span><img src="~/assets/images/icones/phone.svg" alt="" class=" mx-2"></span>
               <p class="text-Graylighten3 t14 w400">021-45673</p>
             </div>
             <div class="d-flex align-center">
-              <span><img src="~/assets/images/icones/mail.svg" alt="" class="mt-5 ml-2"></span>
+              <span><img src="~/assets/images/icones/mail.svg" alt="" class="mt-5 mx-2"></span>
               <p class="text-Graylighten3 t14 w400 mt-4">Info@sabalankhodro.com</p>
             </div>
             <div class="d-flex align-center">
-              <span><img src="~/assets/images/icones/location.svg" alt="" class="mt-5 ml-2"></span>
-              <p class="text-Graylighten3 t14 w400 mt-4">ایران، تهران، خیابان بهشتی</p>
+              <span><img src="~/assets/images/icones/location.svg" alt="" class="mt-5 mx-2"></span>
+              <p class="text-Graylighten3 t14 w400 mt-4" v-if="lang ==='fa'">ایران، تهران، خیابان بهشتی</p>
+              <p class="text-Graylighten3 t14 w400 mt-4" v-else>Iran, Tehran, Beheshti St.</p>
             </div>
           </div>
         </div>
@@ -70,24 +82,36 @@
       <div class="d-flex justify-lg-space-between mt-3">
         <div class="d-flex align-center justify-space-between">
           <div class="d-flex align-center ml-15">
-            <img src="~/assets/images/icones/copyrigth.svg" alt="">
-            <span class="t10 w300 text-Graylighten3">
+            <img src="~/assets/images/icones/copyrigth.svg" alt="" class="mx-1">
+            <span class="t10 w300 text-Graylighten3" v-if="lang === 'fa'">
               تمامی حقوق سایت متعلق به سبلان خودرو میباشد
             </span>
+            <span class="t10 w300 text-Graylighten3" v-else>
+             All rights reserved to Sabalan khodro
+            </span>
           </div>
           <div class="d-flex align-center ml-15">
-            <span class="t10 w300 text-Graylighten3">
+            <span class="t10 w300 text-Graylighten3" v-if="lang === 'fa'">
               سیاست کوکی‌ها
             </span>
-          </div>
-          <div class="d-flex align-center ml-15">
-            <span class="t10 w300 text-Graylighten3">
-              قوانین و مقررات
+            <span class="t10 w300 text-Graylighten3" v-else>
+              Cookie Policy
             </span>
           </div>
-          <div class="d-flex align-center">
-            <span class="t10 w300 text-Graylighten3">
+          <div class="d-flex align-center ml-15">
+            <span class="t10 w300 text-Graylighten3" v-if="lang === 'fa'">
+              قوانین و مقررات
+            </span>
+            <span class="t10 w300 text-Graylighten3" v-else>
+              Rules & Terms
+            </span>
+          </div>
+          <div class="d-flex align-center mx-5">
+            <span class="t10 w300 text-Graylighten3" v-if="lang === 'fa'">
               حریم شخصی
+            </span>
+            <span class="t10 w300 text-Graylighten3" v-else>
+              Privacy policy
             </span>
           </div>
         </div>
@@ -119,34 +143,48 @@
       <div class="footer-box--footer-link">
         <div class="pr-2">
           <div>
-          <span class="text-Graylighten5 t12 w500">
+          <span class="text-Graylighten5 t12 w500"  v-if="lang==='fa'">
             دسترسی سریع
           </span>
-          </div>
-          <div class="mt-7">
-            <p class="text-Graylighten3 t10 w400">درباره ما</p>
-            <p class="text-Graylighten3 t10 w400 mt-4">اخبار</p>
-            <p class="text-Graylighten3 t10 w400 mt-4">خدمات</p>
-            <p class="text-Graylighten3 t10 w400 mt-4">سوالات متداول</p>
-          </div>
-        </div>
-        <div class="pr-2">
-          <div>
-          <span class="text-Graylighten5 t12 w500">
-           محصولات
+            <span class="text-Graylighten5 t12 w500" v-else>
+           Quick links
           </span>
           </div>
           <div class="mt-7">
-            <p class="text-Graylighten3 t10 w400">اتوبوس دوو</p>
-            <p class="text-Graylighten3 t10 w400 mt-4">مینی‌بوس آرتا</p>
-            <p class="text-Graylighten3 t10 w400 mt-4">اتوبوس آرتا</p>
-            <p class="text-Graylighten3 t10 w400 mt-4">مینی‌بوس آرتاپلاس</p>
+\
+            <p class="text-Graylighten3 t10 w400" v-if="lang==='fa'">درباره ما</p>
+            <p class="text-Graylighten3 t10 w400" v-else> About Us</p>
+            <p class="text-Graylighten3 t10 w400 mt-4" v-if="lang==='fa'">اخبار</p>
+            <p class="text-Graylighten3 t10 w400 mt-4" v-else>News</p>
+            <p class="text-Graylighten3 t10 w400 mt-4" v-if="lang==='fa'">خدمات</p>
+            <p class="text-Graylighten3 t10 w400 mt-4" v-else>News</p>
+            <p class="text-Graylighten3 t10 w400 mt-4" v-if="lang==='fa'">سوالات متداول</p>
+            <p class="text-Graylighten3 t10 w400 mt-4" v-else> News</p>
           </div>
         </div>
         <div class="pr-2">
           <div>
-          <span class="text-Graylighten5 t12 w500">
+          <span class="text-Graylighten5 t12 w500" v-if="lang==='fa'">
+           محصولات
+          </span>
+            <span class="text-Graylighten5 t12 w500" v-else>
+           Products
+          </span>
+          </div>
+          <div class="mt-7">
+            <p class="text-Graylighten3 t10 w400"
+               v-for="(product , index) in HomeProductLists" :key="`product-footer${index}`"> {{ product?.name }}</p>
+
+          </div>
+        </div>
+        <div class="pr-2">
+          <div>
+
+            <span class="text-Graylighten5 t12 w500" v-if="lang==='fa'">
            تماس با ما
+          </span>
+            <span class="text-Graylighten5 t12 w500" v-else>
+           Contact Us
           </span>
           </div>
           <div class="mt-7">
@@ -160,7 +198,8 @@
             </div>
             <div class="d-flex align-center">
               <span><img src="~/assets/images/icones/location.svg" alt="" class="mt-5 ml-2"></span>
-              <p class="text-Graylighten3 t10 w400 mt-4">ایران، تهران، خیابان بهشتی</p>
+              <p class="text-Graylighten3 t10 w400 mt-4" v-if="lang ==='fa'">ایران، تهران، خیابان بهشتی</p>
+              <p class="text-Graylighten3 t10 w400 mt-4" v-else>Iran, Tehran, Beheshti St.</p>
             </div>
           </div>
         </div>
@@ -169,5 +208,10 @@
   </div>
 </template>
 <script>
-export default {}
+export default {
+  props:{
+    lang:'fa',
+    HomeProductLists:[]
+  }
+}
 </script>

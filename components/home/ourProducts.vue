@@ -1,9 +1,13 @@
 <template>
   <div class="mt-16 " ref="animatedElement">
-    <div class="px-12 mb-4 text-right our-product-title">
-      <span class="animate__animated animate__bounce animate__delay-2s">
+    <div class="px-12 mb-4  our-product-title">
+      <span v-if="lang === 'fa'">
         تولیدات ما
       </span>
+      <span v-else>
+       Products
+      </span>
+
     </div>
     <div class="our-product">
       <div class="image-box" v-for="product in productList">
@@ -36,6 +40,8 @@ const props = defineProps({
     type: Array,
     required: true,
   },
+  lang:'fa'
+
 });
 const animatedElement = ref(null);
 

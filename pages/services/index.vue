@@ -1,5 +1,5 @@
 <template>
-<div>
+<div :class="lang === 'en' ? 'd-ltr' :''">
   <headerPage/>
 
   <div class="service px-md-15 mx-md-10 py-md-15 my-8 px-5" >
@@ -54,8 +54,8 @@ import headerPage from "~/components/public/header.vue";
 export default {
   components: {headerPage, footerPage},
   setup(){
-    const {detail} = new Service();
-    return {detail}
+    const {detail , lang} = new Service();
+    return {detail , lang}
   },
   data() {
     return {

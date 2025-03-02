@@ -1,11 +1,13 @@
 <template>
-  <div>
+  <div :class="lang === 'en' ? 'd-ltr' :''">
     <headerPage/>
 
     <div class="news-banner">
       <div class="text-center">
-        <span class="news-banner--title text-white">
+        <span class="news-banner--title text-white" v-if="lang === 'fa'">
           آخرین اخبار در گروه سبلان
+        </span><span class="news-banner--title text-white" v-else>
+          Latest News in Sabalan Team
         </span>
       </div>
 
@@ -85,10 +87,13 @@
 
     <div class=" mt-9 px-md-15 mx-md-3 mb-4">
       <div>
-        <span class="t24 w600 text-TextDarken2">
+        <span class="t24 w600 text-TextDarken2" v-if="lang === 'fa'">
           اخبار و مقالات
         </span>
-        <nuxt-link :to="`/news/${item?.unique_key}`" v-for="(item , index) in detail">
+        <span class="t24 w600 text-TextDarken2" v-else>
+          News and Articles
+        </span>
+        <nuxt-link :to="`/news/${item?.unique_key}${$route.query.lang ? `?lang=${$route.query.lang}` : ''}`" v-for="(item , index) in detail">
           <div class="news-list">
             <div class="news-card " >
               <div>
@@ -130,8 +135,8 @@ import footerPage from "~/components/public/footer.vue";
 export default {
   components: {footerPage, headerPage},
   setup(){
-    const {detail} = new News()
-    return { detail}
+    const {detail , lang} = new News()
+    return { detail , lang}
   },
 
   computed:{

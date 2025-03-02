@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="lang === 'en' ? 'd-ltr' :''">
     <headerPage/>
 
     <div class="faq px-md-15 mx-md-10 py-md-15 my-8 px-5" >
@@ -44,8 +44,8 @@ import footerPage from "~/components/public/footer.vue";
 export default {
   components: {footerPage, headerPage},
   setup(){
-    const {detail} = new Faq()
-    return {detail}
+    const {detail , lang} = new Faq()
+    return {detail , lang}
   }
 }
 </script>

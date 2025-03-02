@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div :class="lang === 'en' ? 'd-ltr' :''">
     <headerPage/>
 
-    <banner/>
-    <teamPerson :memebers="memebers"/>
+    <banner :lang="lang"/>
+    <teamPerson :lang="lang" :memebers="memebers"/>
     <footerPage/>
 
   </div>
@@ -17,8 +17,8 @@ import headerPage from "~/components/public/header.vue";
 import footerPage from "~/components/public/footer.vue";
 export default {
   setup(){
-    const {memebers } = new Team()
-    return {memebers}
+    const {memebers  , lang} = new Team()
+    return {memebers , lang}
   },
   components: {
     footerPage,

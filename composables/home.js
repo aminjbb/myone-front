@@ -4,7 +4,7 @@
 import { ref} from 'vue';
 import axios from "axios";
 import {useStore} from 'vuex'
-
+import {useRoute} from "vue-router";
 
 export default function setup() {
     const HomeBannerList = ref([]);
@@ -12,8 +12,10 @@ export default function setup() {
     const servicesList = ref([]);
     const partnerList = ref([]);
     const newsList = ref([]);
+    const route = useRoute();
     const loading = ref(true)
     const runtimeConfig = useRuntimeConfig()
+    const lang = route.query.lang === 'en'? 'en' :'fa';
     const store = useStore()
     const structureData =[
         {
@@ -97,7 +99,11 @@ export default function setup() {
     })
     async function getBanners() {
         axios
-            .get(`${runtimeConfig.public.apiBase}v4/slider/list`
+            .get(`${runtimeConfig.public.apiBase}v4/slider/list`,{
+                headers: {
+                    "Accept-Language": lang
+                }
+                }
             )
             .then((response) => {
                 HomeBannerList.value = response?.data?.data;
@@ -107,7 +113,11 @@ export default function setup() {
     };
     async function productList() {
         axios
-            .get(`${runtimeConfig.public.apiBase}v4/content/products/list?full=false&count=6`
+            .get(`${runtimeConfig.public.apiBase}v4/content/products/list?full=false&count=6`,{
+                headers: {
+                    "Accept-Language": lang
+                }
+                }
             )
             .then((response) => {
                 HomeProductLists.value = response?.data?.data;
@@ -117,7 +127,11 @@ export default function setup() {
     };
     async function getServicesList() {
         axios
-            .get(`${runtimeConfig.public.apiBase}v4/entities/service/list?count=6`
+            .get(`${runtimeConfig.public.apiBase}v4/entities/service/list?count=6`,{
+                headers: {
+                    "Accept-Language": lang
+                }
+                }
             )
             .then((response) => {
                servicesList.value = response?.data?.data;
@@ -127,7 +141,11 @@ export default function setup() {
     };
     async function getPartnerList() {
         axios
-            .get(`${runtimeConfig.public.apiBase}v4/member/partner/list?count=6`
+            .get(`${runtimeConfig.public.apiBase}v4/member/partner/list?count=6`,{
+                headers: {
+                    "Accept-Language": lang
+                }
+                }
             )
             .then((response) => {
                 partnerList.value = response?.data?.data;
@@ -137,7 +155,11 @@ export default function setup() {
     };
     async function getNewsList() {
         axios
-            .get(`${runtimeConfig.public.apiBase}v4/content/blogs/list?count=6`
+            .get(`${runtimeConfig.public.apiBase}v4/content/blogs/list?count=6`,{
+                headers: {
+                    "Accept-Language": lang
+                }
+                }
             )
             .then((response) => {
                 newsList.value = response?.data?.data;
@@ -147,5 +169,5 @@ export default function setup() {
     };
 
     return { HomeBannerList  , getBanners , HomeProductLists,  productList, getServicesList , servicesList
-            , partnerList , getPartnerList , getNewsList , newsList}
+            , partnerList , getPartnerList , getNewsList , newsList , lang }
 }

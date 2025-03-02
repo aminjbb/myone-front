@@ -11,12 +11,17 @@ export default function setup() {
     const menu = ref([]);
     const loading = ref(true)
     const route = useRoute()
+    const lang = route.query.lang === 'en'? 'en' :'fa';
 
     const runtimeConfig = useRuntimeConfig()
 
     async function getMenu() {
         axios
-            .get(`${runtimeConfig.public.apiBase}v4/category/content/list`
+            .get(`${runtimeConfig.public.apiBase}v4/category/content/list`,{
+                headers: {
+                    "Accept-Language": lang
+                }
+                }
             )
             .then((response) => {
                 menu.value = response?.data?.data;
@@ -26,5 +31,5 @@ export default function setup() {
     };
 
 
-    return { menu , getMenu }
+    return { menu , getMenu , lang }
 }

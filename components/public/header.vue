@@ -3,11 +3,13 @@
   <div class="position-relative z-1000">
     <div class="top-header px-14 d-md-flex d-none">
       <div class="top-header--search position-relative">
-        <span class="text-Graylighten3 t14 w400" @click="openSearch()">جستجو</span>
+        <span class="text-Graylighten3 t14 w400" @click="openSearch()" v-if="lang==='fa'">جستجو</span>
+        <span class="text-Graylighten3 t14 w400" @click="openSearch()" v-else>Search</span>
         <span><img src="~/assets/images/icones/searchGray.svg" alt="" width="16" height="16" class="ma-1 mt-4"></span>
-        <div class="search" id="search" >
-          <v-text-field @keyup="searchMethod()" v-model="searchText" density="compact" class="search-text" clearable clear-icon="mdi-close"></v-text-field>
-          <div class="search-box" >
+        <div class="search" id="search">
+          <v-text-field @keyup="searchMethod()" v-model="searchText" density="compact" class="search-text" clearable
+                        clear-icon="mdi-close"></v-text-field>
+          <div class="search-box">
             <div>
               <span class="text-white">
                 نتایج برتر
@@ -29,7 +31,8 @@
         <img src="~/assets/images/logo.png" alt="">
       </div>
       <div class="top-header--search">
-        <span class="t12 w300 text-Graylighten3">فارسی</span>
+        <span class="t12 w300 text-Graylighten3" @click="changeLang('fa')" v-if="lang ==='fa'">فارسی</span>
+        <span class="t12 w300 text-Graylighten3" @click="changeLang('fa')" v-else>Farsi</span>
         <span class="t12 w300 text-Graylighten3">
           <div class="px-3 pt-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="2" height="22" viewBox="0 0 2 22" fill="none">
@@ -37,46 +40,62 @@
           </svg>
           </div>
         </span>
-        <span class="t12 w300 text-Graylighten3">انگلیسی</span>
+        <span class="t12 w300 text-Graylighten3" @click="changeLang('en')" v-if="lang ==='fa'">انگلیسی</span>
+        <span class="t12 w300 text-Graylighten3" @click="changeLang('en')" v-else>English</span>
       </div>
     </div>
     <div class="header-menu px-10 d-md-flex d-none">
 
-      <div class="d-flex align-center " @mouseover="showMenu = true" >
-        <span class="t16 w500 text-Graylighten5">
+      <div class="d-flex align-center " @mouseover="showMenu = true">
+        <span class="t16 w500 text-Graylighten5" v-if="lang ==='fa'">
           ماشین‌ها
+        </span>
+        <span class="t16 w500 text-Graylighten5" v-else>
+         Vehicles
         </span>
         <div class="pt-2">
           <img src="~/assets/images/icones/downChevron.svg" alt="">
         </div>
       </div>
-      <nuxt-link to="/news">
-        <div @mouseover="showMenu = false" >
-        <span class="t16 w500 text-Graylighten5">
+      <nuxt-link :to="`/news${$route.query.lang ? `?lang=${$route.query.lang}` :''}`">
+        <div @mouseover="showMenu = false">
+        <span class="t16 w500 text-Graylighten5" v-if="lang ==='fa'">
           اخبار
         </span>
+          <span class="t16 w500 text-Graylighten5" v-else>
+          News
+        </span>
         </div>
       </nuxt-link>
-      <nuxt-link to="/team">
+      <nuxt-link :to="`/team${$route.query.lang ? `?lang=${$route.query.lang}` :''}`">
         <div @mouseover="showMenu = false">
-        <span class="t16 w500 text-Graylighten5">
+        <span class="t16 w500 text-Graylighten5" v-if="lang ==='fa'">
           تیم ما
         </span>
-        </div>
-
-      </nuxt-link>
-      <nuxt-link to="/contact-us">
-        <div @mouseover="showMenu = false">
-        <span class="t16 w500 text-Graylighten5">
-          ارتباط با ما
+          <span class="t16 w500 text-Graylighten5" v-else>
+         Team Members
         </span>
         </div>
 
       </nuxt-link>
-      <nuxt-link to="/about-us">
+      <nuxt-link :to="`/contact-us${$route.query.lang ? `?lang=${$route.query.lang}` :''}`">
         <div @mouseover="showMenu = false">
-        <span class="t16 w500 text-Graylighten5">
+        <span class="t16 w500 text-Graylighten5" v-if="lang==='fa'">
+          ارتباط با ما
+        </span>
+          <span class="t16 w500 text-Graylighten5" v-else>
+         Contact Us
+        </span>
+        </div>
+
+      </nuxt-link>
+      <nuxt-link :to="`/about-us${$route.query.lang ? `?lang=${$route.query.lang}` :''}`">
+        <div @mouseover="showMenu = false">
+        <span class="t16 w500 text-Graylighten5" v-if="lang==='fa'">
           درباره ما
+        </span>
+          <span class="t16 w500 text-Graylighten5" v-else>
+         About Us
         </span>
         </div>
 
@@ -85,7 +104,8 @@
     <div class="header-menu-mobile px-10 d-md-none d-flex">
       <div class="mt-2 " @click="drawer=true">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="14" viewBox="0 0 18 14" fill="none">
-          <path d="M1 7H17M1 1H17M1 13H17" stroke="#BCBACC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M1 7H17M1 1H17M1 13H17" stroke="#BCBACC" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round"/>
         </svg>
       </div>
       <div class="mt-2">
@@ -102,8 +122,9 @@
         <div class="mega-menu--items--select">
 
           <div class="mt-9 mr-8 ml-3">
-            <div class="mega-menu--items--select--item " :class="activeMenu === index ? 'mega-menu--items--select--active' : ''"
-            @mouseover="activeMenu = index" v-for="(item ,index) in menu">
+            <div class="mega-menu--items--select--item "
+                 :class="activeMenu === index ? 'mega-menu--items--select--active' : ''"
+                 @mouseover="activeMenu = index" v-for="(item ,index) in menu">
               <span>{{ item?.name }}</span>
               <img src="~/assets/images/icones/leftChevronWhite.svg" alt="" v-if="activeMenu === 1 ">
             </div>
@@ -111,27 +132,33 @@
         </div>
         <div>
           <div v-for="(item ,index) in menu">
-            <div class="mega-menu--items--selected px-8 py-5" v-if="activeMenu == index" >
-              <div v-for="(car , carIndex) in item?.products?.slice(0,6)" >
+            <div class="mega-menu--items--selected px-8 py-5" v-if="activeMenu == index">
+              <div v-for="(car , carIndex) in item?.products?.slice(0,6)">
                 <div class="d-flex justify-center">
                   <img width="286" height="190" :src="car?.cover?.path" class="flip-img">
 
                 </div>
                 <div class="text-center mt-5">
                 <span class="t20 w700 text-SecondaryDarken1">
-                  {{car?.title}}
+                  {{ car?.title }}
                 </span>
                 </div>
                 <div class="d-flex justify-space-between mt-5 px-10">
-                  <nuxt-link :to="`/car/${car?.unique_key}`">
-                    <span class="t14 w400 text-SecondaryDarken1 text-decoration-underline">
+                  <nuxt-link :to="`/car/${car?.unique_key}${$route.query.lang ? `?lang=${$route.query.lang}` :''}`">
+                    <span class="t14 w400 text-SecondaryDarken1 text-decoration-underline" v-if="lang==='fa'">
                      اطلاعات بیشتر
+                    </span>
+                    <span class="t14 w400 text-SecondaryDarken1 text-decoration-underline" v-else>
+                      Leran
                     </span>
                   </nuxt-link>
 
-                  <nuxt-link :to="`/car/${car?.unique_key}`">
-                   <span class="t14 w400 text-SecondaryDarken1 text-decoration-underline">
+                  <nuxt-link :to="`/car/${car?.unique_key}${$route.query.lang ? `?lang=${$route.query.lang}` :''}`">
+                   <span class="t14 w400 text-SecondaryDarken1 text-decoration-underline" v-if="lang==='fa'">
                         خرید
+                   </span>
+                    <span class="t14 w400 text-SecondaryDarken1 text-decoration-underline" v-else>
+                        Purchase
                    </span>
                   </nuxt-link>
                 </div>
@@ -153,8 +180,11 @@
         <div>
           <div class="text-center my-5">
             <div class="d-flex justify-center" @click="activeMenuMobile =!activeMenuMobile">
-               <span class="text-white t16 w500">
+               <span class="text-white t16 w500" v-if="lang==='fa'">
                 ماشین‌ها
+              </span>
+              <span class="text-white t16 w500" v-else>
+               Vehicles
               </span>
               <div class="">
                 <img src="~/assets/images/icones/downChevron.svg" alt="">
@@ -162,35 +192,43 @@
             </div>
             <div v-if="activeMenuMobile" class="sub-mobile">
               <div class="pa-5 text-right " v-for="(item , index) in menu">
-                  <div class="d-flex align-center" @click="activeMenuItemMobile=index">
-                    <span>{{item?.name}}</span>
-                    <span class="pt-1">
+                <div class="d-flex align-center" @click="activeMenuItemMobile=index">
+                  <span>{{ item?.name }}</span>
+                  <span class="pt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M7.74399 6.07748C7.90026 5.92126 8.11219 5.8335 8.33316 5.8335C8.55413 5.8335 8.76605 5.92126 8.92232 6.07748L12.2557 9.41082C12.4119 9.56709 12.4996 9.77901 12.4996 9.99998C12.4996 10.221 12.4119 10.4329 12.2557 10.5892L8.92232 13.9225C8.76515 14.0743 8.55465 14.1583 8.33615 14.1564C8.11766 14.1545 7.90865 14.0668 7.75414 13.9123C7.59963 13.7578 7.51199 13.5488 7.51009 13.3303C7.5082 13.1118 7.59219 12.9013 7.74399 12.7442L10.4882 9.99998L7.74399 7.25582C7.58776 7.09954 7.5 6.88762 7.5 6.66665C7.5 6.44568 7.58776 6.23376 7.74399 6.07748Z" fill="#060511"/>
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M7.74399 6.07748C7.90026 5.92126 8.11219 5.8335 8.33316 5.8335C8.55413 5.8335 8.76605 5.92126 8.92232 6.07748L12.2557 9.41082C12.4119 9.56709 12.4996 9.77901 12.4996 9.99998C12.4996 10.221 12.4119 10.4329 12.2557 10.5892L8.92232 13.9225C8.76515 14.0743 8.55465 14.1583 8.33615 14.1564C8.11766 14.1545 7.90865 14.0668 7.75414 13.9123C7.59963 13.7578 7.51199 13.5488 7.51009 13.3303C7.5082 13.1118 7.59219 12.9013 7.74399 12.7442L10.4882 9.99998L7.74399 7.25582C7.58776 7.09954 7.5 6.88762 7.5 6.66665C7.5 6.44568 7.58776 6.23376 7.74399 6.07748Z"
+                            fill="#060511"/>
                     </svg>
                   </span>
-                  </div>
-                  <div class="car-mobie" v-if="activeMenuItemMobile == index">
-                  <div v-for="(car , carIndex) in item?.products?.slice(0,6)" >
+                </div>
+                <div class="car-mobie" v-if="activeMenuItemMobile == index">
+                  <div v-for="(car , carIndex) in item?.products?.slice(0,6)">
                     <div class="d-flex justify-center">
                       <img width="164" height="109" :src="car?.cover?.path" class="flip-img">
 
                     </div>
                     <div class="text-center mt-5">
                 <span class="t16 w600 text-SecondaryDarken1">
-                  {{car?.title}}
+                  {{ car?.title }}
                 </span>
                     </div>
                     <div class="d-flex justify-space-between mt-5 px-2">
-                      <nuxt-link :to="`/car/${car?.unique_key}`">
-                    <span class="t12 w400 text-SecondaryDarken1 text-decoration-underline">
+                      <nuxt-link :to="`/car/${car?.unique_key}${$route.query.lang ? `?lang=${$route.query.lang}` :''}`">
+                    <span class="t12 w400 text-SecondaryDarken1 text-decoration-underline" v-if="lang==='fa'">
                      اطلاعات بیشتر
+                    </span>
+                        <span class="t12 w400 text-SecondaryDarken1 text-decoration-underline" v-else>
+                     Leran
                     </span>
                       </nuxt-link>
 
-                      <nuxt-link :to="`/car/${car?.unique_key}`">
-                   <span class="t12 w400 text-SecondaryDarken1 text-decoration-underline">
+                      <nuxt-link :to="`/car/${car?.unique_key}${$route.query.lang ? `?lang=${$route.query.lang}` :''}`">
+                   <span class="t12 w400 text-SecondaryDarken1 text-decoration-underline" v-if="lang==='fa'">
                         خرید
+                   </span>
+                        <span class="t12 w400 text-SecondaryDarken1 text-decoration-underline" v-else>
+                       Purchase
                    </span>
                       </nuxt-link>
                     </div>
@@ -203,23 +241,35 @@
 
           </div>
           <div class="text-center my-5">
-            <span class="text-white t16 w500">
+            <span class="text-white t16 w500" v-if="lang==='fa'">
               اخبار
             </span>
+            <span class="text-white t16 w500" v-else>
+              News
+            </span>
           </div>
           <div class="text-center my-5">
-            <span class="text-white t16 w500">
+            <span class="text-white t16 w500" v-if="lang==='fa'">
               تیم
             </span>
-          </div>
-          <div class="text-center my-5">
-            <span class="text-white t16 w500">
-              ارتباط با ما
+            <span class="text-white t16 w500" v-else>
+              Team Members
             </span>
           </div>
           <div class="text-center my-5">
-            <span class="text-white t16 w500">
+            <span class="text-white t16 w500" v-if="lang==='fa'">
+              ارتباط با ما
+            </span>
+            <span class="text-white t16 w500" v-else >
+             Contact Us
+            </span>
+          </div>
+          <div class="text-center my-5">
+            <span class="text-white t16 w500" v-if="lang==='fa'">
              درباره ما
+            </span>
+            <span class="text-white t16 w500" v-else>
+             About Us
             </span>
           </div>
         </div>
@@ -230,30 +280,42 @@
 </template>
 
 <script>
- import axios from "axios";
-  import Menu from '~/composables/Menu.js'
- export default {
-   setup(){
-     const {menu , getMenu} = Menu()
-     return {menu , getMenu}
-     const runtimeConfig = useRuntimeConfig()
-     return {runtimeConfig}
-   },
-  data(){
+import axios from "axios";
+import Menu from '~/composables/Menu.js'
+
+export default {
+  setup() {
+    const {menu, getMenu} = Menu()
+    return {menu, getMenu}
+    const runtimeConfig = useRuntimeConfig()
+    return {runtimeConfig}
+  },
+  props: {
+    lang: 'fa'
+  },
+  data() {
     return {
       showMenu: false,
-      activeMenu:0,
-      search:[],
-      searchText:"",
-      searchTime:null,
-      isSearch:false,
-      drawer:false,
-      activeMenuMobile:false,
-      activeMenuItemMobile:null
+      activeMenu: 0,
+      search: [],
+      searchText: "",
+      searchTime: null,
+      isSearch: false,
+      drawer: false,
+      activeMenuMobile: false,
+      activeMenuItemMobile: null
     }
   },
-   methods:{
-    searchMethod(){
+  methods: {
+    changeLang(lang) {
+      this.$router.push(`${this.$route.path}?lang=${lang}`)
+      setTimeout(() => {
+        location.reload();
+
+      }, 1000)
+
+    },
+    searchMethod() {
       axios
           .get(`${this.runtimeConfig.public.apiBase}v3/content/search?q=${this.searchText}`
           )
@@ -262,30 +324,32 @@
           })
           .catch((err) => {
           })
-    },
-     openSearch(){
+    }
+    ,
+    openSearch() {
 
       const searchModal = document.getElementById("search");
-       if(searchModal.style.display === 'none'){
-         searchModal.style.display="block";
+      if (searchModal.style.display === 'none') {
+        searchModal.style.display = "block";
 
-       }
-       else {
-         searchModal.style.display="none";
+      } else {
+        searchModal.style.display = "none";
 
-       }
+      }
 
-     },
-     closeModal(){
+    }
+    ,
+    closeModal() {
       const searchModal = document.getElementById("search");
-      searchModal.style.display="none";
+      searchModal.style.display = "none";
 
-     },
-   },
-   mounted(){
-     this.getMenu()
-   }
+    }
+    ,
+  },
+  mounted() {
+    this.getMenu()
+  }
 
 
- }
+}
 </script>

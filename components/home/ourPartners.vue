@@ -1,8 +1,11 @@
 <template>
   <div>
     <div class="text-center our-partner--title my-8 my-md-15">
-        <p class=" text-Primarydarken3">
+        <p class=" text-Primarydarken3" v-if="lang==='fa'">
           شرکای ما
+        </p>
+        <p class=" text-Primarydarken3" v-else>
+          Our Partners
         </p>
     </div>
     <div class="slider-container">
@@ -73,7 +76,8 @@
 <script>
 export default {
   props:{
-    partnerList:[]
+    partnerList:[],
+    lang:'fa'
   },
 mounted() {
 

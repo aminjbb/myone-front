@@ -5,12 +5,46 @@
   font-weight: 100 900;
   font-display: fallback;
 }
+@font-face {
+  font-family: 'Teko';
+  src: url('~/assets/fonts/teko/Teko-Light.ttf') format('truetype'),
+  url('~/assets/fonts/teko/Teko-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-display: fallback;
+}
+@font-face {
+  font-family: 'Teko';
+  src: url('~/assets/fonts/teko/Teko-Regular.ttf') format('truetype'),
+  url('~/assets/fonts/teko/Teko-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: fallback;
+}
+@font-face {
+  font-family: 'Teko';
+  src: url('~/assets/fonts/teko/Teko-Medium.ttf') format('truetype'),
+  url('~/assets/fonts/teko/Teko-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: fallback;
+}
+@font-face {
+  font-family: 'Teko';
+  src: url('~/assets/fonts/teko/Teko-SemiBold.ttf') format('truetype'),
+  url('~/assets/fonts/teko/Teko-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-display: fallback;
+}@font-face {
+  font-family: 'Teko';
+  src: url('~/assets/fonts/teko/Teko-Bold.ttf') format('truetype'),
+  url('~/assets/fonts/teko/Teko-Bold.ttf') format('truetype');
+  font-weight: 700 900;
+  font-display: fallback;
+}
 
 @supports (font-variation-settings: normal) {
 
   html,
   html * {
-    font-family: 'Dana_Variable', sans-serif !important;
+    font-family: 'Dana_Variable', sans-serif;
   }
 }
 

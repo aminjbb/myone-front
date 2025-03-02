@@ -1,14 +1,14 @@
 <template>
-  <div>
-    <headerPage/>
+  <div :class="lang === 'en' ? 'd-ltr' :''">
+    <headerPage :lang="lang"/>
     <homeBanner :HomeBannerList="HomeBannerList"/>
-    <ourProducts :productList="HomeProductLists"/>
-    <knowUsMore/>
-    <ourServices :servicesList="servicesList"/>
-    <creationSection/>
-    <ourPartners :partnerList="partnerList"/>
-    <newsSection :newsList="newsList"/>
-    <footerPage/>
+    <ourProducts :productList="HomeProductLists" :lang="lang"/>
+    <knowUsMore :lang="lang"/>
+    <ourServices :lang="lang" :servicesList="servicesList"/>
+    <creationSection :lang="lang"/>
+    <ourPartners :lang="lang" :partnerList="partnerList"/>
+<!--    <newsSection :newsList="newsList" :lang="lang"/>-->
+    <footerPage :lang="lang" :HomeProductLists="HomeProductLists"/>
   </div>
 </template>
 <script >
@@ -37,9 +37,9 @@ export default {
   setup(){
 
     const { HomeBannerList  , getBanners , HomeProductLists,  productList ,
-      getServicesList , servicesList , partnerList , getPartnerList , getNewsList , newsList } = new Home();
+      getServicesList , servicesList , partnerList , getPartnerList , getNewsList , newsList ,lang } = new Home();
     return {HomeBannerList  , getBanners , HomeProductLists,  productList ,
-      getServicesList , servicesList , partnerList , getPartnerList , getNewsList , newsList }
+      getServicesList , servicesList , partnerList , getPartnerList , getNewsList , newsList ,lang }
   },
 
   mounted(){

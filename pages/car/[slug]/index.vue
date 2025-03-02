@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div :class="lang === 'en' ? 'd-ltr' :''">
     <headerPage/>
 
-      <gallary :detail="detail"/>
-      <review/>
+      <gallary :lang="lang" :detail="detail"/>
+      <review :lang="lang" :detail="detail"/>
 
     <footerPage/>
 
@@ -18,9 +18,10 @@
   import footerPage from "~/components/public/footer.vue";
   export default {
     setup(){
-      const { detail } = new Car()
-      return {detail}
+      const { detail , lang} = new Car()
+      return {detail , lang}
     },
+
     components: {
       footerPage,
       headerPage,
