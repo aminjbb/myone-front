@@ -241,36 +241,48 @@
 
           </div>
           <div class="text-center my-5">
-            <span class="text-white t16 w500" v-if="lang==='fa'">
+              <nuxt-link :to="`/news${$route.query.lang ? `?lang=${$route.query.lang}` :''}`">
+                 <span class="text-white t16 w500" v-if="lang==='fa'">
               اخبار
-            </span>
-            <span class="text-white t16 w500" v-else>
-              News
-            </span>
+              </span>
+              <span class="text-white t16 w500" v-else>
+                News
+              </span>
+              <nuxt-link/>
+           
           </div>
           <div class="text-center my-5">
+           <nuxt-link :to="`/team${$route.query.lang ? `?lang=${$route.query.lang}` :''}`">
             <span class="text-white t16 w500" v-if="lang==='fa'">
               تیم
             </span>
             <span class="text-white t16 w500" v-else>
               Team Members
             </span>
+            <nuxt-link/>
+           
           </div>
           <div class="text-center my-5">
-            <span class="text-white t16 w500" v-if="lang==='fa'">
+               <nuxt-link :to="`/about-us${$route.query.lang ? `?lang=${$route.query.lang}` :''}`">
+           <span class="text-white t16 w500" v-if="lang==='fa'">
               ارتباط با ما
             </span>
             <span class="text-white t16 w500" v-else >
              Contact Us
             </span>
+            <nuxt-link/>
+           
           </div>
           <div class="text-center my-5">
+            <nuxt-link :to="`/news${$route.query.lang ? `?lang=${$route.query.lang}` :''}`">
             <span class="text-white t16 w500" v-if="lang==='fa'">
              درباره ما
             </span>
             <span class="text-white t16 w500" v-else>
              About Us
             </span>
+            <nuxt-link/>
+          
           </div>
         </div>
       </v-navigation-drawer>
