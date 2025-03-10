@@ -9,6 +9,7 @@ import {useRoute} from "vue-router";
 
 export default function setup() {
     const menu = ref([]);
+    const publicContent = ref(null);
     const loading = ref(true)
     const route = useRoute()
     const lang = route.query.lang === 'en'? 'en' :'fa';
@@ -29,7 +30,22 @@ export default function setup() {
             .catch((err) => {
             })
     };
+    async function getPublic() {
+        axios
+            .get(`${runtimeConfig.public.apiBase}v4/main/information`,{
+                    headers: {
+                        "Accept-Language": lang
+                    }
+                }
+            )
+            .then((response) => {
+                publicContent.value = response?.data?.data;
+            })
+            .catch((err) => {
+            })
+    };
 
 
-    return { menu , getMenu , lang }
+
+    return { menu , getMenu , lang , publicContent , getPublic }
 }

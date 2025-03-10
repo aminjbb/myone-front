@@ -1,11 +1,11 @@
 <template>
   <div :class="lang === 'en' ? 'd-ltr' :''">
-    <headerPage/>
+    <headerPage :lang="lang"/>
 
       <gallary :lang="lang" :detail="detail"/>
       <review :lang="lang" :detail="detail"/>
 
-    <footerPage/>
+    <footerPage :lang="lang"/>
 
   </div>
 </template>

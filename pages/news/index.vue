@@ -1,6 +1,6 @@
 <template>
   <div :class="lang === 'en' ? 'd-ltr' :''">
-    <headerPage/>
+    <headerPage :lang="lang"/>
 
     <div class="news-banner">
       <div class="text-center">
@@ -123,7 +123,7 @@
         </nuxt-link>
       </div>
     </div>
-    <footerPage/>
+    <footerPage :lang="lang"/>
 
   </div>
 </template>

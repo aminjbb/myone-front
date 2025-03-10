@@ -12,7 +12,7 @@
           </span>
           </div>
           <div class="mt-7">
-            <nuxt-link :to="`/about-us{$route.query.lang ? `?lang=${$route.query.lang}` :''}`">
+            <nuxt-link :to="`/about-us${$route.query.lang ? `?lang=${$route.query.lang}` :''}`">
                <p class="text-Graylighten3 t14 w400" v-if="lang==='fa'">درباره ما</p>
                           <p class="text-Graylighten3 t14 w400" v-else> About Us</p>
 
@@ -61,31 +61,31 @@
           <div class="mt-7">
             <div class="d-flex align-center" >
               <span><img src="~/assets/images/icones/phone.svg" alt="" class=" mx-2"></span>
-              <p class="text-Graylighten3 t14 w400">021-45673</p>
+              <p class="text-Graylighten3 t14 w400">{{ publicContent?.contact[0]?.tel }}</p>
             </div>
             <div class="d-flex align-center">
               <span><img src="~/assets/images/icones/mail.svg" alt="" class="mt-5 mx-2"></span>
-              <p class="text-Graylighten3 t14 w400 mt-4">Info@sabalankhodro.com</p>
+              <p class="text-Graylighten3 t14 w400 mt-4">{{ publicContent?.contact[0]?.email }}</p>
             </div>
             <div class="d-flex align-center">
               <span><img src="~/assets/images/icones/location.svg" alt="" class="mt-5 mx-2"></span>
-              <p class="text-Graylighten3 t14 w400 mt-4" v-if="lang ==='fa'">ایران، تهران، خیابان بهشتی</p>
-              <p class="text-Graylighten3 t14 w400 mt-4" v-else>Iran, Tehran, Beheshti St.</p>
+              <p class="text-Graylighten3 t14 w400 mt-4" >{{ publicContent?.contact[0]?.address }}</p>
             </div>
           </div>
         </div>
         <div>
           <div class="d-flex align-center" >
-            <a>
+            <a :href="publicContent?.social[0]?.aparat" target="_blank">
+
               <img src="~/assets/images/icones/aparat.svg" alt="" class=" ml-8">
             </a>
-            <a>
+            <a :href="publicContent?.social[0]?.linkdin" target="_blank">
               <img src="~/assets/images/icones/linkdin.svg" alt="" class=" ml-8">
             </a>
-            <a>
+            <a :href="publicContent?.social[0]?.telegram" target="_blank">
               <img src="~/assets/images/icones/youtube.svg" alt="" class=" ml-8">
             </a>
-            <a>
+            <a :href="publicContent?.social[0]?.instagram" target="_blank">
               <img src="~/assets/images/icones/insta.svg" alt="" class=" ml-8">
             </a>
           </div>
@@ -96,12 +96,10 @@
         <div class="d-flex align-center justify-space-between">
           <div class="d-flex align-center ml-15">
             <img src="~/assets/images/icones/copyrigth.svg" alt="" class="mx-1">
-            <span class="t10 w300 text-Graylighten3" v-if="lang === 'fa'">
-              تمامی حقوق سایت متعلق به سبلان خودرو میباشد
+            <span class="t10 w300 text-Graylighten3">
+              {{publicContent?.data?.copyright}}
             </span>
-            <span class="t10 w300 text-Graylighten3" v-else>
-             All rights reserved to Sabalan khodro
-            </span>
+
           </div>
           <div class="d-flex align-center ml-15">
             <span class="t10 w300 text-Graylighten3" v-if="lang === 'fa'">
@@ -140,16 +138,16 @@
     </div>
     <div class="footer-box pt-15 px-5 d-block d-md-none">
       <div class="d-flex align-center" >
-        <a>
+        <a :href="publicContent?.social[0]?.aparat" target="_blank">
           <img src="~/assets/images/icones/aparat.svg" alt="" class=" ml-5" width="24" height="24">
         </a>
-        <a>
+        <a :href="publicContent?.social[0]?.linkdin" target="_blank">
           <img src="~/assets/images/icones/linkdin.svg" alt="" class=" ml-5" width="24" height="24">
         </a>
-        <a>
+        <a :href="publicContent?.social[0]?.telegram" target="_blank">
           <img src="~/assets/images/icones/youtube.svg" alt="" class=" ml-5" width="24" height="24">
         </a>
-        <a>
+        <a :href="publicContent?.social[0]?.instagram" target="_blank">
           <img src="~/assets/images/icones/insta.svg" alt="" class=" ml-5" width="24" height="24">
         </a>
       </div>
@@ -164,22 +162,22 @@
           </span>
           </div>
           <div class="mt-7">
-             <nuxt-link :to="`/about-us{$route.query.lang ? `?lang=${$route.query.lang}` :''}`">
+             <nuxt-link :to="`/about-us${$route.query.lang ? `?lang=${$route.query.lang}` :''}`">
                         <p class="text-Graylighten3 t10 w400" v-if="lang==='fa'">درباره ما</p>
             <p class="text-Graylighten3 t10 w400" v-else> About Us</p>
 
               </nuxt-link>
-   <nuxt-link :to="`/news{$route.query.lang ? `?lang=${$route.query.lang}` :''}`">
+   <nuxt-link :to="`/news${$route.query.lang ? `?lang=${$route.query.lang}` :''}`">
  <p class="text-Graylighten3 t10 w400 mt-4" v-if="lang==='fa'">اخبار</p>
             <p class="text-Graylighten3 t10 w400 mt-4" v-else>News</p>
 
               </nuxt-link>
-              <nuxt-link :to="`/services{$route.query.lang ? `?lang=${$route.query.lang}` :''}`">
+              <nuxt-link :to="`/services${$route.query.lang ? `?lang=${$route.query.lang}` :''}`">
  <p class="text-Graylighten3 t10 w400 mt-4" v-if="lang==='fa'">خدمات</p>
             <p class="text-Graylighten3 t10 w400 mt-4" v-else>News</p>
 
               </nuxt-link>
-                         <nuxt-link :to="`/faq{$route.query.lang ? `?lang=${$route.query.lang}` :''}`">
+                         <nuxt-link :to="`/faq${$route.query.lang ? `?lang=${$route.query.lang}` :''}`">
  <p class="text-Graylighten3 t10 w400 mt-4" v-if="lang==='fa'">سوالات متداول</p>
             <p class="text-Graylighten3 t10 w400 mt-4" v-else> News</p>
 
@@ -233,10 +231,19 @@
   </div>
 </template>
 <script>
+import Menu from '~/composables/Menu.js'
+
 export default {
+  setup(){
+    const {publicContent , getPublic } = new Menu()
+    return {publicContent , getPublic }
+  },
   props:{
     lang:'fa',
     HomeProductLists:[]
-  }
+  },
+  mounted(){
+    this.getPublic();
+  },
 }
 </script>

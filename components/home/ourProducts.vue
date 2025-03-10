@@ -30,34 +30,13 @@
   </div>
 </template>
 <script setup>
-import { ref, onMounted } from 'vue';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(ScrollTrigger);
 const props = defineProps({
   productList: {
     type: Array,
-    required: true,
   },
   lang:'fa'
 
 });
-const animatedElement = ref(null);
 
-onMounted(() => {
-  if ( window.innerWidth > 769){
-    gsap.from(animatedElement.value, {
-      opacity: 0,
-      y: 50,
-      duration: 1,
-      scrollTrigger: {
-        trigger: animatedElement.value,
-        start: 'top 0%',
-        toggleActions: 'play none none reverse',
-      },
-    });
-  }
-
-});
 </script>

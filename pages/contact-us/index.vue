@@ -1,7 +1,7 @@
 <template>
   <div :class="lang === 'en' ? 'd-ltr' :''">
     <div>
-      <headerPage/>
+      <headerPage :lang="lang"/>
 
       <v-row justify="center" align="center">
         <v-col md="5" cols="12" class="">
@@ -267,7 +267,7 @@
         </v-row>
       </div>
     </div>
-    <footerPage/>
+    <footerPage :lang="lang"/>
   </div>
 
 </template>

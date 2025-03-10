@@ -1,6 +1,6 @@
 <template>
   <div :class="lang === 'en' ? 'd-ltr' :''">
-    <headerPage/>
+    <headerPage :lang="lang"/>
 
     <div class="d-flex justify-center mt-12">
       <div class="news-title">
@@ -48,7 +48,7 @@
         </div>
       </div>
     </div>
-    <footerPage/>
+    <footerPage :lang="lang"/>
 
   </div>
 </template>

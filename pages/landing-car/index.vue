@@ -1,6 +1,6 @@
 <template>
   <div :class="lang === 'en' ? 'd-ltr' :''">
-    <headerPage/>
+    <headerPage :lang="lang"/>
 
     <div class="landing-car-banner">
       <img src="~/assets/images/landing-car-banner.png">
@@ -252,7 +252,7 @@
 
       </v-row>
     </div>
-    <footerPage/>
+    <footerPage :lang="lang"/>
 
   </div>
 </template>

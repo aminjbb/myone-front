@@ -1,6 +1,6 @@
 <template>
   <div :class="lang === 'en' ? 'd-ltr' :''">
-    <headerPage/>
+    <headerPage :lang="lang"/>
 
     <div class="faq px-md-15 mx-md-10 py-md-15 my-8 px-5" >
       <div class="faq--head">
@@ -32,7 +32,7 @@
         </v-col>
       </v-row>
     </div>
-    <footerPage/>
+    <footerPage :lang="lang"/>
   </div>
 
 </template>

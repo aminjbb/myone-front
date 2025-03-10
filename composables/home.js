@@ -26,7 +26,7 @@ export default function setup() {
             "id":"https://sabalankhodro.com",
             "alternateName":["مای وان","Sabalan Khodro Mayvan"],
             "legalName":"Sabalan Khodro Mayvan",
-            "email":"info@sabalankhodro.com"؛,
+            "email":"info@sabalankhodro.com",
             "sameAs":[
                
             ],
@@ -55,7 +55,7 @@ export default function setup() {
                     "areaServed":{
                         "@context":"https://schema.org",
                         "@type":"Place",
-                        "geo": {""},
+                        "geo": "",
                         "hasMap":'https://maps.app.goo.gl/jPviUNqahqmVHpY96',
                         "addressCountry":{"@type":"Country","name":"Iran"}
                     }

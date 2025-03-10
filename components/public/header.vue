@@ -248,7 +248,7 @@
               <span class="text-white t16 w500" v-else>
                 News
               </span>
-              <nuxt-link/>
+              </nuxt-link>
            
           </div>
           <div class="text-center my-5">

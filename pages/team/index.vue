@@ -1,10 +1,10 @@
 <template>
   <div :class="lang === 'en' ? 'd-ltr' :''">
-    <headerPage/>
+    <headerPage :lang="lang"/>
 
     <banner :lang="lang"/>
     <teamPerson :lang="lang" :memebers="memebers"/>
-    <footerPage/>
+    <footerPage :lang="lang"/>
 
   </div>
 </template>
