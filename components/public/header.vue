@@ -259,7 +259,7 @@
             <span class="text-white t16 w500" v-else>
               Team Members
             </span>
-            <nuxt-link/>
+            </nuxt-link>
            
           </div>
           <div class="text-center my-5">
@@ -270,7 +270,7 @@
             <span class="text-white t16 w500" v-else >
              Contact Us
             </span>
-            <nuxt-link/>
+            </nuxt-link>
            
           </div>
           <div class="text-center my-5">
@@ -281,7 +281,7 @@
             <span class="text-white t16 w500" v-else>
              About Us
             </span>
-            <nuxt-link/>
+            </nuxt-link>
           
           </div>
         </div>
