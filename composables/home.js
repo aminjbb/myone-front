@@ -21,45 +21,41 @@ export default function setup() {
         {
             "@context": "http://schema.org/",
             "@type": "Corporation",
-            "name": "شاواز",
+            "name": "مای وان",
             "url": "https://shavaz.com/",
             "id":"https://shavaz.com",
-            "alternateName":["شاواز","shavaz"],
-            "legalName":"سلامت آوران یزدان نفیس",
-            "email":"Info@shavaz.com",
+            "alternateName":["مای وان","Sabalan Khodro Mayvan"],
+            "legalName":"Sabalan Khodro Mayvan",
+            "email":"info@sabalankhodro.com"؛,
             "sameAs":[
-                "https://twitter.com/ShavazCom",
-                "https://www.linkedin.com/company/shavaz/about",
-                "https://t.me/shavazcomm",
-                "https://www.youtube.com/channel/UCh1GzMPHJXoIvTP9DtUli4",
-                "https://www.instagram.com/shavazcom"
+               
             ],
             "logo":{
-                "@type":"ImageObject",
+                "@type":"",
                 "inLanguage":"fa-IR",
-                "url":`${runtimeConfig.public.siteUrl}/Sign192.png`,
-                "contentUrl":`${runtimeConfig.public.siteUrl}/Sign192.png`,
+                "url":`https://sabalankhodro.com/Sign192.png`,
+                "contentUrl":`https://sabalankhodro.com/Sign192.png`,
                 "width":192,
                 "height":192,
-                "caption":"فروشگاه اینترنتی شاواز"
+                "caption":"فروشگاه مای وان"
             },
             "contactPoint":{
                 "@type":"ContactPoint",
-                "telephone":"021-91552343",
+                "telephone":"021-44991780",
                 "contactType":"customer service",
                 "areaServed":"IR",
                 "availableLanguage":"Persian",
                 "address": {
                     "@type": "PostalAddress",
-                    "streetAddress": "No. 18, corner of Shahid Akbar Asgharzadeh alley, Shahid Mohsen Yaqoubi St.",
+                    "streetAddress": "Tehran, Kilometer 17 of the Special Road,Darou Pakhsh Boulevard, Ordibehesht 2nd Street  ",
                     "addressLocality": "Tehran",
                     "addressRegion": "Tehran",
-                    "postalCode": "1484633439",
+                    "postalCode": "1397145118",
                     "addressCountry": "Iran, Islamic Republic of",
                     "areaServed":{
                         "@context":"https://schema.org",
                         "@type":"Place",
-                        "geo": {"@type":"GeoCoordinates","latitude":"35.72814946987037","longitude":"51.290000176638316"},
+                        "geo": {""},
                         "hasMap":'https://maps.app.goo.gl/jPviUNqahqmVHpY96',
                         "addressCountry":{"@type":"Country","name":"Iran"}
                     }
@@ -69,9 +65,9 @@ export default function setup() {
         {
             "@context":"https://schema.org",
             "@type":"WebSite",
-            "url": "https://shavaz.com/",
-            "id":"https://shavaz.com",
-            "name": "شاواز",
+            "url": "https://sabalankhodro.com",
+            "id":"https://sabalankhodro.com",
+            "name": "مای وان",
             "potentialAction":{
                 "@type":"SearchAction",
                 "target":"https://shavaz.com/search?needl={search_term_string}",
@@ -83,8 +79,8 @@ export default function setup() {
             },
             "copyrightHolder":{
                 "@type":"Corporation",
-                "id":"https://shavaz.com/",
-                "name":"شاواز"
+                "id":"https://sabalankhodro.com",
+                "name":"مای وان"
             }
         }
 
