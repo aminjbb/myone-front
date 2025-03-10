@@ -16,22 +16,22 @@
                <p class="text-Graylighten3 t14 w400" v-if="lang==='fa'">درباره ما</p>
                           <p class="text-Graylighten3 t14 w400" v-else> About Us</p>
 
-              <nuxt-link/>
+              </nuxt-link>
            <nuxt-link :to="`/news${$route.query.lang ? `?lang=${$route.query.lang}` :''}`">
                 <p class="text-Graylighten3 t14 w400 mt-4" v-if="lang==='fa'">اخبار</p>
                 <p class="text-Graylighten3 t14 w400 mt-4" v-else>News</p>
 
-            <nuxt-link/>
+            </nuxt-link>
              <nuxt-link :to="`/services${$route.query.lang ? `?lang=${$route.query.lang}` :''}`">
                <p class="text-Graylighten3 t14 w400 mt-4" v-if="lang==='fa'">خدمات</p>
               <p class="text-Graylighten3 t14 w400 mt-4" v-else>News</p>
 
-            <nuxt-link/>
+            </nuxt-link>
             <nuxt-link :to="`/faq${$route.query.lang ? `?lang=${$route.query.lang}` :''}`">
             <p class="text-Graylighten3 t14 w400 mt-4" v-if="lang==='fa'">سوالات متداول</p>
             <p class="text-Graylighten3 t14 w400 mt-4" v-else> News</p>
 
-            <nuxt-link/>
+            </nuxt-link>
             
           </div>
         </div>
@@ -168,22 +168,22 @@
                         <p class="text-Graylighten3 t10 w400" v-if="lang==='fa'">درباره ما</p>
             <p class="text-Graylighten3 t10 w400" v-else> About Us</p>
 
-              <nuxt-link/>
+              </nuxt-link>
    <nuxt-link :to="`/news{$route.query.lang ? `?lang=${$route.query.lang}` :''}`">
  <p class="text-Graylighten3 t10 w400 mt-4" v-if="lang==='fa'">اخبار</p>
             <p class="text-Graylighten3 t10 w400 mt-4" v-else>News</p>
 
-              <nuxt-link/>
+              </nuxt-link>
               <nuxt-link :to="`/services{$route.query.lang ? `?lang=${$route.query.lang}` :''}`">
  <p class="text-Graylighten3 t10 w400 mt-4" v-if="lang==='fa'">خدمات</p>
             <p class="text-Graylighten3 t10 w400 mt-4" v-else>News</p>
 
-              <nuxt-link/>
+              </nuxt-link>
                          <nuxt-link :to="`/faq{$route.query.lang ? `?lang=${$route.query.lang}` :''}`">
  <p class="text-Graylighten3 t10 w400 mt-4" v-if="lang==='fa'">سوالات متداول</p>
             <p class="text-Graylighten3 t10 w400 mt-4" v-else> News</p>
 
-              <nuxt-link/>
+              </nuxt-link>
            
           </div>
         </div>
