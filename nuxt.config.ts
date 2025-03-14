@@ -34,7 +34,8 @@ export default defineNuxtConfig({
   ],
 
   build: {
-    transpile: ['vuetify'],
+     transpile: ['vuetify', 'gsap'],
+    
   },
 
   vite: {
@@ -43,7 +44,8 @@ export default defineNuxtConfig({
     },
   },
   plugins: [
-    { src: '~/plugins/aos.js', mode: 'client' }
+    { src: '~/plugins/aos.js', mode: 'client' },
+    { src: '~/plugins/gsap.js', mode: 'client' }
   ],
   compatibilityDate: '2024-09-25',
 })
